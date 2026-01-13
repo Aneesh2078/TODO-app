@@ -131,6 +131,10 @@ body {
   border-color: transparent;
 }
 
+.priority-select {
+  max-width: 120px;
+}
+
 /* Buttons */
 .btn {
   padding: 0.75rem 1.5rem;
@@ -241,6 +245,10 @@ body {
 .todo-text {
   font-size: 1rem;
   transition: all 0.2s;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .todo-item.completed .todo-text {
@@ -386,17 +394,106 @@ body {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 480px) {
-  .body {
+@media (max-width: 640px) {
+  body {
     padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 
+  .header {
+    margin-bottom: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Stack input group on small screens */
+  .input-group {
+    flex-wrap: wrap;
+  }
+
+  .input-field {
+    min-width: 100%;
+  }
+
+  /* Make select and button full width on mobile or side-by-side */
+  .input-group select.input-field,
+  .priority-select {
+    flex: 1;
+    min-width: auto;
+    max-width: none;
+  }
+
+  .input-group button.btn {
+    flex: 1;
+  }
+
+  /* Adjust card padding */
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Filter bar adjustments */
   .filter-bar {
-    justify-content: space-between;
+    justify-content: stretch;
   }
 
   .filter-btn {
     flex: 1;
     text-align: center;
+    padding: 0.5rem;
+  }
+
+  /* Todo Item adjustments */
+  .todo-item {
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .todo-content {
+    min-width: 0;
+    /* Enable text truncation/wrapping in flex child */
+  }
+
+  .todo-text {
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  /* Adjust badge size */
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* Toast positioning */
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+  }
+
+  .toast {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 380px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-content {
+    width: 100%;
+  }
+
+  .btn-icon {
+    align-self: flex-end;
   }
 }

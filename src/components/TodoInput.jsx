@@ -25,8 +25,7 @@ const TodoInput = ({ onAdd }) => {
                     onChange={(e) => setText(e.target.value)}
                 />
                 <select
-                    className="input-field"
-                    style={{ maxWidth: '120px' }}
+                    className="input-field priority-select"
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
                 >
